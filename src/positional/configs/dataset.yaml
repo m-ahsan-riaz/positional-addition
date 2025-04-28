@@ -1,0 +1,83 @@
+# Relative to project root when launched with `python -m positional.data.generator`
+output_dir: ../../datasets/raw
+
+splits:
+  splitA_train:
+    n_samples: 50000
+    len_a: 2
+    len_b: 2
+    distractor_type: digits
+    distractor_pos: none
+    distractor_len: 0
+    seed: 1
+  splitA_val:
+    n_samples: 5000
+    len_a: 2
+    len_b: 2
+    distractor_type: digits
+    distractor_pos: none
+    distractor_len: 0
+    seed: 2
+  splitA_test:
+    n_samples: 5000
+    len_a: 2
+    len_b: 2
+    distractor_type: digits
+    distractor_pos: none
+    distractor_len: 0
+    seed: 3
+
+  # operand-length scaling (1-5 digits, no distractors)
+  splitB_train:
+    n_samples: 50000
+    len_a: 1
+    len_b: 5  # generator will pick *exactly* len_a / len_b; we’ll loop later for eval-by-len
+    distractor_type: none
+    distractor_pos: none
+    distractor_len: 0
+    seed: 4
+  splitB_val:
+    n_samples: 5000
+    len_a: 1
+    len_b: 5
+    distractor_type: none
+    distractor_pos: none
+    distractor_len: 0
+    seed: 5
+  splitB_test:
+    n_samples: 5000
+    len_a: 1
+    len_b: 5
+    distractor_type: none
+    distractor_pos: none
+    distractor_len: 0
+    seed: 6
+
+  # distractor grid (2-digit operands)
+  splitC_train:
+    n_samples: 50000
+    len_a: 2
+    len_b: 2
+    distractor_type: chars
+    distractor_pos: between
+    distractor_len: 10
+    seed: 7
+  splitC_val:
+    n_samples: 5000
+    len_a: 2
+    len_b: 2
+    distractor_type: chars
+    distractor_pos: between
+    distractor_len: 10
+    seed: 8
+  splitC_test:
+    n_samples: 5000
+    len_a: 2
+    len_b: 2
+    distractor_type: chars
+    distractor_pos: between
+    distractor_len: 10
+    seed: 9
+hydra:
+  run:
+    dir: 
